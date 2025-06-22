@@ -18,5 +18,3 @@ behavior or styling of the prototype.
 
 Font Awesome Free assets are included in `assets/fontawesome` and are licensed under
 their respective terms. See `assets/fontawesome/LICENSE-fontawesome` for details.
-
-
