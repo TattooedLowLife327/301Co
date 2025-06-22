@@ -23,22 +23,46 @@ header {
 .header-left, .header-center, .header-right {
     flex-grow: 1; /* Allow header sections to grow */
     text-align: center; /* Center logo, align messages left, settings right */
+    display: flex; /* Use flex to align content within these divs */
+    align-items: center;
 }
 
 .header-left {
-    text-align: left;
+    justify-content: flex-start; /* Align message icon to the left */
+}
+
+.header-center {
+    justify-content: center; /* Center the logo */
 }
 
 .header-right {
-    text-align: right;
+    justify-content: flex-end; /* Align settings icon to the right */
 }
 
-#messages {
-    font-size: 1.5em; /* Adjust message icon size if needed */
+.header-icon {
+    width: 28px; /* Adjust size of header icons */
+    height: 28px;
+    object-fit: contain; /* Ensure the image scales down without cropping */
     cursor: pointer;
 }
 
-#settings {
+.header-icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo {
+    max-height: 40px; /* Adjust max height for your logo */
+    width: auto;
+    object-fit: contain;
+}
+
+#settings { /* This is the old select element, you might not need this if using cogwheel button */
     background-color: #FFFFFF; /* Match header background */
     border: 1px solid #CCCCCC; /* Light gray border */
     border-radius: 4px;
@@ -60,7 +84,7 @@ nav {
 nav button {
     flex-grow: 1; /* Make buttons take equal width */
     margin: 0 2px; /* Small margin between buttons */
-    padding: 12px 0; /* Adjust vertical padding */
+    padding: 8px 0; /* Adjust vertical padding to accommodate icon and text */
     border: none;
     border-radius: 6px; /* Slightly rounded corners for tabs */
     background: #CCCCCC; /* Inactive tab background: light gray */
@@ -69,6 +93,11 @@ nav button {
     font-size: 0.95em;
     font-weight: 500;
     transition: all 0.3s ease; /* Smooth transition for active state */
+    display: flex; /* Make button content a flex container */
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    gap: 3px; /* Space between icon and label */
 }
 
 nav button.active {
@@ -81,6 +110,17 @@ nav button:hover:not(.active) {
     background: #C0C0C0; /* Slightly darker gray on hover for inactive tabs */
 }
 
+.nav-icon {
+    width: 24px; /* Size for navigation icons */
+    height: 24px;
+    object-fit: contain;
+    /* For active state icons, you might need a different image or CSS filter */
+}
+
+/* If you want the active tab text to remain black, override the color on active button */
+nav button.active .nav-label {
+    color: white; /* Ensure label is white when active */
+}
 
 /* Main Content Area */
 main {
@@ -169,8 +209,11 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
 }
 
-.hot-buttons button i.fa {
-    font-size: 1.8em; /* Make icons larger */
+/* Replaced .hot-buttons button i.fa with a class for your image */
+.hot-buttons button .button-icon {
+    width: 32px; /* Make icons larger for hot buttons */
+    height: 32px;
+    object-fit: contain;
     margin-bottom: 5px; /* Add space below icon */
 }
 
@@ -179,6 +222,45 @@ main {
     white-space: nowrap; /* Prevent label from wrapping */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+
+/* Specific styling for Phone & Email tab content */
+.comms-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items within the content box */
+}
+
+.comms-icon-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between call and gmail buttons */
+    margin-bottom: 20px; /* Space between buttons and other content */
+}
+
+.comms-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F0F0F0; /* Light gray background for comms buttons */
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 80px; /* Ensure a minimum width */
+}
+
+.comms-button:hover {
+    background-color: #E0E0E0;
+}
+
+.comms-icon {
+    width: 36px; /* Larger icons for communication buttons */
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 5px;
 }
 
 /* Ensure content above the fixed footer is visible */
