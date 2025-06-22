@@ -7,8 +7,9 @@ navigation tabs and placeholder content.
 ## Usage
 
 Open `index.html` in a browser to view the app. The app does not require a backend.
+Icons are loaded from the Font Awesome CDN, so an internet connection is required to display them correctly.
 
 ## Development
 
 JavaScript and CSS files are located in the repository root. Modify them to adjust the
-behavior or styling of the prototype.
+behavior or styling of the prototype. Font files are tracked with Git LFS and are not stored in the repository.
