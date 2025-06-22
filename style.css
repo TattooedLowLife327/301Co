@@ -1,51 +1,135 @@
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background: #FFFFFF;
-    color: #000;
+    font-family: 'Roboto', sans-serif; /* Keep Roboto, ensure sans-serif fallback */
+    background: #FFFFFF; /* Main app background is pure white */
+    color: #000; /* Default text color is black */
     margin: 0;
+    padding-bottom: 100px; /* Add padding to body to prevent content from being hidden by fixed footer buttons */
 }
+
+/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #e8eef5; /* light navy */
-    color: #000;
+    padding: 10px 20px; /* Add horizontal padding for a cleaner look */
+    background-color: #FFFFFF; /* Header background is white */
+    color: #000000; /* Header text is black */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for dimension */
+    position: sticky; /* Make header sticky if needed, or remove if not desired */
+    top: 0;
+    z-index: 1000; /* Ensure header is above other content */
 }
-nav {
-    display: flex;
-    background: #f0f0f0;
-    padding: 5px;
+
+.header-left, .header-center, .header-right {
+    flex-grow: 1; /* Allow header sections to grow */
+    text-align: center; /* Center logo, align messages left, settings right */
 }
-nav button {
-    margin-right: 5px;
-    padding: 10px;
-    border: none;
-    background: #ccc;
-    color: #fff;
+
+.header-left {
+    text-align: left;
+}
+
+.header-right {
+    text-align: right;
+}
+
+#messages {
+    font-size: 1.5em; /* Adjust message icon size if needed */
     cursor: pointer;
 }
+
+#settings {
+    background-color: #FFFFFF; /* Match header background */
+    border: 1px solid #CCCCCC; /* Light gray border */
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    color: #000000;
+}
+
+
+/* Navigation Tabs */
+nav {
+    display: flex;
+    justify-content: space-around; /* Distribute tabs evenly */
+    background: #E0E0E0; /* A slightly darker gray for the nav bar background */
+    padding: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for dimension */
+}
+
+nav button {
+    flex-grow: 1; /* Make buttons take equal width */
+    margin: 0 2px; /* Small margin between buttons */
+    padding: 12px 0; /* Adjust vertical padding */
+    border: none;
+    border-radius: 6px; /* Slightly rounded corners for tabs */
+    background: #CCCCCC; /* Inactive tab background: light gray */
+    color: #000000; /* Inactive tab text: black */
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Smooth transition for active state */
+}
+
 nav button.active {
-    background: #000080;
-    color: #fff;
+    background: #000080; /* Active tab background: dark navy blue */
+    color: #FFFFFF; /* Active tab text: white */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Inner shadow for active state depth */
 }
+
+nav button:hover:not(.active) {
+    background: #C0C0C0; /* Slightly darker gray on hover for inactive tabs */
+}
+
+
+/* Main Content Area */
 main {
-    padding: 20px;
+    padding: 20px; /* Consistent padding around main content */
 }
+
 .page {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Space between pages */
     display: none;
 }
-.content {
-    background: #fff;
-    padding: 16px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 .page.active {
     display: block;
 }
+
+/* Content Boxes (e.g., in Active Clients, Forms etc.) */
+.content {
+    background: #FFFFFF; /* Content boxes are white */
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Slightly more rounded corners for content boxes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Clearer shadow for dimension */
+}
+
+/* Homepage Specifics */
+#quote {
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333333; /* Darker gray for quote */
+    font-size: 1.1em;
+}
+
+#calendar {
+    background: #F8F8F8; /* Light gray background for calendar area */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Subtle shadow for calendar */
+    text-align: center;
+    min-height: 150px; /* Ensure calendar has some visible height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+
+/* Hot Buttons (Fixed at Bottom) */
 .hot-buttons {
     position: fixed;
     bottom: 0;
@@ -53,23 +137,51 @@ main {
     right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 16px 24px;
-    background: #fff;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px 20px; /* Consistent padding */
+    background: #FFFFFF; /* Background is white, as discussed */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Stronger shadow to pop from bottom */
+    z-index: 999; /* Ensure it stays above other scrolling content */
 }
+
 .hot-buttons button {
-    margin: 0 5px;
-    padding: 16px 24px;
+    flex: 1; /* Make buttons fill space evenly */
+    margin: 0 10px; /* Space between buttons */
+    padding: 18px 10px; /* Increased padding for easier tapping */
     border: none;
-    border-radius: 10px;
-    background: #1f2d3d;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* More pronounced rounded corners */
+    background: #333333; /* Dark gray background for buttons */
+    color: #FFFFFF; /* White icons/text */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Clearer shadow for dimension */
     cursor: pointer;
     display: flex;
+    flex-direction: column; /* Stack icon and label vertically */
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 5px; /* Space between icon and label */
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
 }
+
+.hot-buttons button:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
+}
+
+.hot-buttons button i.fa {
+    font-size: 1.8em; /* Make icons larger */
+    margin-bottom: 5px; /* Add space below icon */
+}
+
 .hot-buttons button .label {
-    display: inline-block;
+    display: block; /* Ensure label is on its own line */
+    white-space: nowrap; /* Prevent label from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+
+/* Ensure content above the fixed footer is visible */
+main {
+    padding-bottom: 100px; /* Adjust this value if hot-buttons height changes */
 }
