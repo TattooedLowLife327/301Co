@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>301Co App Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left" id="messages">💬</div>
+        <div class="header-center">Logo</div>
+        <div class="header-right">
+            <select id="settings">
+                <option value="">Settings</option>
+                <option value="away">Away Message</option>
+                <option value="theme">Theme</option>
+                <option value="notifications">Notifications</option>
+            </select>
+        </div>
+    </header>
+    <nav>
+        <button data-page="home" class="active">Home</button>
+        <button data-page="clients">Active Clients</button>
+        <button data-page="forms">Blank Forms</button>
+        <button data-page="insurance">Insurance & Docs</button>
+        <button data-page="tools">Tool Bag</button>
+        <button data-page="comms">Phone/Email</button>
+    </nav>
+    <main>
+        <section id="home" class="page active">
+            <div id="quote">"Stay positive!"</div>
+            <div id="calendar">Weekly calendar goes here.</div>
+            <div class="hot-buttons">
+                <button id="scanner">📷 Open Scanner</button>
+                <button id="new-client">📁 Create New Client File</button>
+            </div>
+        </section>
+        <section id="clients" class="page">
+            <h2>Active Client Files</h2>
+            <div class="content">Client list placeholder.</div>
+        </section>
+        <section id="forms" class="page">
+            <h2>Blank Forms</h2>
+            <div class="content">Form index placeholder.</div>
+        </section>
+        <section id="insurance" class="page">
+            <h2>Insurance & Documentation</h2>
+            <div class="content">Insurance documents placeholder.</div>
+        </section>
+        <section id="tools" class="page">
+            <h2>Tool Bag</h2>
+            <div class="content">Widgets go here.</div>
+        </section>
+        <section id="comms" class="page">
+            <h2>Phone & Email</h2>
+            <div class="content">Communication shortcuts placeholder.</div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

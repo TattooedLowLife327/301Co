@@ -1,1 +1,14 @@
-# 301Co
+# 301Co App
+
+This repository contains a minimal prototype web application based on the feature list provided.
+It is a static HTML/JavaScript demonstration that shows the overall layout of the app with
+navigation tabs and placeholder content.
+
+## Usage
+
+Open `index.html` in a browser to view the app. The app does not require a backend.
+
+## Development
+
+JavaScript and CSS files are located in the repository root. Modify them to adjust the
+behavior or styling of the prototype.
