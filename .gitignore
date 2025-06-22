@@ -1,1 +1,18 @@
-assets/fontawesome/fonts/
+
+# Node dependencies
+node_modules/
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
