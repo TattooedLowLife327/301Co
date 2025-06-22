@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    background: white;
-    color: black;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #FFFFFF;
+    color: #000;
     margin: 0;
 }
 header {
@@ -9,8 +9,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #1f2d3d; /* navy */
-    color: white;
+    background-color: #e8eef5; /* light navy */
+    color: #000;
 }
 nav {
     display: flex;
@@ -21,25 +21,55 @@ nav button {
     margin-right: 5px;
     padding: 10px;
     border: none;
-    background: #e0e0e0;
+    background: #ccc;
+    color: #fff;
     cursor: pointer;
 }
 nav button.active {
-    background: #1f2d3d;
-    color: white;
+    background: #000080;
+    color: #fff;
 }
 main {
     padding: 20px;
 }
 .page {
+    margin-bottom: 20px;
     display: none;
+}
+.content {
+    background: #fff;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .page.active {
     display: block;
 }
 .hot-buttons {
-    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 24px;
+    background: #fff;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 .hot-buttons button {
-    margin-right: 10px;
+    margin: 0 5px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #1f2d3d;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.hot-buttons button .label {
+    display: inline-block;
 }

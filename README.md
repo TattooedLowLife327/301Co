@@ -12,3 +12,8 @@ Open `index.html` in a browser to view the app. The app does not require a backe
 
 JavaScript and CSS files are located in the repository root. Modify them to adjust the
 behavior or styling of the prototype.
+
+## Assets
+
+Font Awesome Free assets are included in `assets/fontawesome` and are licensed under
+their respective terms. See `assets/fontawesome/LICENSE-fontawesome` for details.
