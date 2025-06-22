@@ -7,6 +7,7 @@ navigation tabs and placeholder content.
 ## Usage
 
 Open `index.html` in a browser to view the app. The app does not require a backend.
+Icons are loaded from the Font Awesome CDN, so an internet connection is required to display them correctly.
 
 ## Development
 
@@ -17,3 +18,5 @@ behavior or styling of the prototype.
 
 Font Awesome Free assets are included in `assets/fontawesome` and are licensed under
 their respective terms. See `assets/fontawesome/LICENSE-fontawesome` for details.
+
+
