@@ -12,4 +12,11 @@ Icons are loaded from the Font Awesome CDN, so an internet connection is require
 ## Development
 
 JavaScript and CSS files are located in the repository root. Modify them to adjust the
-behavior or styling of the prototype. Font files are tracked with Git LFS and are not stored in the repository.
+behavior or styling of the prototype.
+
+## Assets
+
+Font Awesome Free assets are included in `assets/fontawesome` and are licensed under
+their respective terms. See `assets/fontawesome/LICENSE-fontawesome` for details.
+
+
