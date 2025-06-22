@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1f2d3d; /* navy */
+    color: white;
+}
+nav {
+    display: flex;
+    background: #f0f0f0;
+    padding: 5px;
+}
+nav button {
+    margin-right: 5px;
+    padding: 10px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+}
+nav button.active {
+    background: #1f2d3d;
+    color: white;
+}
+main {
+    padding: 20px;
+}
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+.hot-buttons {
+    margin-top: 10px;
+}
+.hot-buttons button {
+    margin-right: 10px;
+}

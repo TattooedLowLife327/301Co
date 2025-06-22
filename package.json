@@ -1,0 +1,13 @@
+{
+  "name": "301co",
+  "version": "1.0.0",
+  "description": "This repository contains a minimal prototype web application based on the feature list provided. It is a static HTML/JavaScript demonstration that shows the overall layout of the app with navigation tabs and placeholder content.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
