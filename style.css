@@ -1,48 +1,47 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Keep Roboto, ensure sans-serif fallback */
-    background: #FFFFFF; /* Main app background is pure white */
-    color: #000; /* Default text color is black */
+    font-family: 'Roboto', sans-serif;
+    background: #FFFFFF;
+    color: #000;
     margin: 0;
-    padding-bottom: 100px; /* Add padding to body to prevent content from being hidden by fixed footer buttons */
+    padding-bottom: 100px;
 }
 
-/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Add horizontal padding for a cleaner look */
-    background-color: #FFFFFF; /* Header background is white */
-    color: #000000; /* Header text is black */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for dimension */
-    position: sticky; /* Make header sticky if needed, or remove if not desired */
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Ensure header is above other content */
+    z-index: 1000;
 }
 
 .header-left, .header-center, .header-right {
-    flex-grow: 1; /* Allow header sections to grow */
-    text-align: center; /* Center logo, align messages left, settings right */
-    display: flex; /* Use flex to align content within these divs */
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
     align-items: center;
 }
 
 .header-left {
-    justify-content: flex-start; /* Align message icon to the left */
+    justify-content: flex-start;
 }
 
 .header-center {
-    justify-content: center; /* Center the logo */
+    justify-content: center;
 }
 
 .header-right {
-    justify-content: flex-end; /* Align settings icon to the right */
+    justify-content: flex-end;
 }
 
 .header-icon {
-    width: 28px; /* Adjust size of header icons */
+    width: 28px;
     height: 28px;
-    object-fit: contain; /* Ensure the image scales down without cropping */
+    object-fit: contain;
     cursor: pointer;
 }
 
@@ -57,78 +56,69 @@ header {
 }
 
 .header-logo {
-    max-height: 40px; /* Adjust max height for your logo */
+    max-height: 40px;
     width: auto;
     object-fit: contain;
 }
 
-#settings { /* This is the old select element, you might not need this if using cogwheel button */
-    background-color: #FFFFFF; /* Match header background */
-    border: 1px solid #CCCCCC; /* Light gray border */
+#settings {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
     border-radius: 4px;
     padding: 5px 10px;
     font-size: 0.9em;
     color: #000000;
 }
 
-
-/* Navigation Tabs */
 nav {
     display: flex;
-    justify-content: space-around; /* Distribute tabs evenly */
-    background: #E0E0E0; /* A slightly darker gray for the nav bar background */
+    justify-content: space-around;
+    background: #E0E0E0;
     padding: 5px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for dimension */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 nav button {
-    flex-grow: 1; /* Make buttons take equal width */
-    margin: 0 2px; /* Small margin between buttons */
-    padding: 8px 0; /* Adjust vertical padding to accommodate icon and text */
+    flex-grow: 1;
+    margin: 0 2px;
+    padding: 8px 0;
     border: none;
-    border-radius: 6px; /* Slightly rounded corners for tabs */
-    background: #CCCCCC; /* Inactive tab background: light gray */
-    color: #000000; /* Inactive tab text: black */
+    border-radius: 6px;
+    background: #CCCCCC;
+    color: #000000;
     cursor: pointer;
     font-size: 0.95em;
     font-weight: 500;
-    transition: all 0.3s ease; /* Smooth transition for active state */
-    display: flex; /* Make button content a flex container */
-    flex-direction: column; /* Stack icon and text vertically */
-    align-items: center; /* Center items horizontally */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 3px; /* Space between icon and label */
+    gap: 3px;
 }
 
 nav button.active {
-    background: #000080; /* Active tab background: dark navy blue */
-    color: #FFFFFF; /* Active tab text: white */
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Inner shadow for active state depth */
+    background: #000080;
+    color: #FFFFFF;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav button:hover:not(.active) {
-    background: #C0C0C0; /* Slightly darker gray on hover for inactive tabs */
+    background: #C0C0C0;
 }
 
 .nav-icon {
-    width: 24px; /* Size for navigation icons */
+    width: 24px;
     height: 24px;
     object-fit: contain;
-    /* For active state icons, you might need a different image or CSS filter */
 }
 
-/* If you want the active tab text to remain black, override the color on active button */
-nav button.active .nav-label {
-    color: white; /* Ensure label is white when active */
-}
-
-/* Main Content Area */
 main {
-    padding: 20px; /* Consistent padding around main content */
+    padding: 20px;
 }
 
 .page {
-    margin-bottom: 20px; /* Space between pages */
+    margin-bottom: 20px;
     display: none;
 }
 
@@ -136,31 +126,29 @@ main {
     display: block;
 }
 
-/* Content Boxes (e.g., in Active Clients, Forms etc.) */
 .content {
-    background: #FFFFFF; /* Content boxes are white */
+    background: #FFFFFF;
     padding: 16px;
     margin-bottom: 20px;
-    border-radius: 8px; /* Slightly more rounded corners for content boxes */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Clearer shadow for dimension */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Homepage Specifics */
 #quote {
     font-style: italic;
     text-align: center;
     margin-bottom: 15px;
-    color: #333333; /* Darker gray for quote */
+    color: #333333;
     font-size: 1.1em;
 }
 
 #calendar {
-    background: #F8F8F8; /* Light gray background for calendar area */
+    background: #F8F8F8;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Subtle shadow for calendar */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     text-align: center;
-    min-height: 150px; /* Ensure calendar has some visible height */
+    min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,8 +156,6 @@ main {
     margin-bottom: 20px;
 }
 
-
-/* Hot Buttons (Fixed at Bottom) */
 .hot-buttons {
     position: fixed;
     bottom: 0;
@@ -177,93 +163,47 @@ main {
     right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 16px 20px; /* Consistent padding */
-    background: #FFFFFF; /* Background is white, as discussed */
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Stronger shadow to pop from bottom */
-    z-index: 999; /* Ensure it stays above other scrolling content */
+    padding: 16px 20px;
+    background: #FFFFFF;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
 }
 
 .hot-buttons button {
-    flex: 1; /* Make buttons fill space evenly */
-    margin: 0 10px; /* Space between buttons */
-    padding: 18px 10px; /* Increased padding for easier tapping */
+    flex: 1;
+    margin: 0 10px;
+    padding: 18px 10px;
     border: none;
-    border-radius: 12px; /* More pronounced rounded corners */
-    background: #333333; /* Dark gray background for buttons */
-    color: #FFFFFF; /* White icons/text */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Clearer shadow for dimension */
+    border-radius: 12px;
+    background: #333333;
+    color: #FFFFFF;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Stack icon and label vertically */
-    align-items: center;
-    justify-content: center;
-    gap: 5px; /* Space between icon and label */
-    font-size: 0.9em;
-    font-weight: bold;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
-}
-
-.hot-buttons button:hover {
-    transform: translateY(-2px); /* Slight lift effect on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
-}
-
-/* Replaced .hot-buttons button i.fa with a class for your image */
-.hot-buttons button .button-icon {
-    width: 32px; /* Make icons larger for hot buttons */
-    height: 32px;
-    object-fit: contain;
-    margin-bottom: 5px; /* Add space below icon */
-}
-
-.hot-buttons button .label {
-    display: block; /* Ensure label is on its own line */
-    white-space: nowrap; /* Prevent label from wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis if text is too long */
-}
-
-/* Specific styling for Phone & Email tab content */
-.comms-content {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center items within the content box */
-}
-
-.comms-icon-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between call and gmail buttons */
-    margin-bottom: 20px; /* Space between buttons and other content */
-}
-
-.comms-button {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #F0F0F0; /* Light gray background for comms buttons */
-    border: 1px solid #CCC;
-    border-radius: 8px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    min-width: 80px; /* Ensure a minimum width */
+    gap: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.comms-button:hover {
-    background-color: #E0E0E0;
+.hot-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
-.comms-icon {
-    width: 36px; /* Larger icons for communication buttons */
-    height: 36px;
+.hot-buttons button .button-icon {
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     margin-bottom: 5px;
 }
 
-/* Ensure content above the fixed footer is visible */
-main {
-    padding-bottom: 100px; /* Adjust this value if hot-buttons height changes */
+.comms-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
