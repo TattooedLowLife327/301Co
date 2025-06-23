@@ -1,209 +1,176 @@
+/* Basic Reset & Body Styling */
 body {
-    font-family: 'Roboto', sans-serif;
-    background: #FFFFFF;
-    color: #000;
     margin: 0;
-    padding-bottom: 100px;
-}
-
-header {
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #FFFFFF;
-    color: #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-left, .header-center, .header-right {
-    flex-grow: 1;
-    text-align: center;
-    display: flex;
-    align-items: center;
-}
-
-.header-left {
-    justify-content: flex-start;
-}
-
-.header-center {
-    justify-content: center;
-}
-
-.header-right {
-    justify-content: flex-end;
-}
-
-.header-icon {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-.header-icon-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f7f6; /* A light, clean background */
+    color: #333;
 }
 
-.header-logo {
-    max-height: 40px;
-    width: auto;
-    object-fit: contain;
-}
-
-#settings {
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 0.9em;
-    color: #000000;
-}
-
+/* Navigation Bar Styling */
 nav {
-    display: flex;
-    justify-content: space-around;
-    background: #E0E0E0;
-    padding: 5px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-nav button {
-    flex-grow: 1;
-    margin: 0 2px;
-    padding: 8px 0;
-    border: none;
-    border-radius: 6px;
-    background: #CCCCCC;
-    color: #000000;
-    cursor: pointer;
-    font-size: 0.95em;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-}
-
-nav button.active {
-    background: #000080;
-    color: #FFFFFF;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-nav button:hover:not(.active) {
-    background: #C0C0C0;
-}
-
-.nav-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
-
-main {
-    padding: 20px;
-}
-
-.page {
-    margin-bottom: 20px;
-    display: none;
-}
-
-.page.active {
-    display: block;
-}
-
-.content {
-    background: #FFFFFF;
-    padding: 16px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#quote {
-    font-style: italic;
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
     text-align: center;
-    margin-bottom: 15px;
-    color: #333333;
-    font-size: 1.1em;
-}
-
-#calendar {
-    background: #F8F8F8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555555;
-    margin-bottom: 20px;
-}
-
-.hot-buttons {
-    position: fixed;
-    bottom: 0;
+    position: fixed; /* Keep nav bar at the top */
+    top: 0;
     left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-around;
-    padding: 16px 20px;
-    background: #FFFFFF;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: 1000; /* Ensure it stays on top of other content */
 }
 
-.hot-buttons button {
-    flex: 1;
-    margin: 0 10px;
-    padding: 18px 10px;
-    border: none;
-    border-radius: 12px;
-    background: #333333;
-    color: #FFFFFF;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+/* Navigation Icon Styling */
+.nav-icon {
+    display: inline-block; /* Allows side-by-side display */
+    padding: 12px 25px; /* More padding for a nicer button feel */
+    margin: 0 10px; /* Space between icons */
+    text-decoration: none;
+    color: #007bff; /* A nice blue for links */
+    font-weight: bold;
+    border-radius: 8px; /* Slightly rounded corners */
+    background-color: transparent; /* No background by default */
+    cursor: pointer; /* Indicate it's clickable */
+    user-select: none; /* Prevent text selection on quick clicks */
+
+    /* The magic for the animation: */
+    transition: transform 0.1s ease-out, /* Faster out, smoother in */
+                box-shadow 0.1s ease-out,
+                background-color 0.1s ease-out; /* For hover effect */
+}
+
+/* Hover effect for icons */
+.nav-icon:hover {
+    background-color: #e9f0f8; /* Light background on hover */
+}
+
+/* Pressed-in animation for icons (when clicked) */
+.nav-icon:active {
+    transform: scale(0.95); /* Slightly shrink the icon */
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2); /* Deeper inner shadow */
+    background-color: #dbe7f5; /* Darker background when pressed */
+    color: #0056b3; /* Slightly darker text when pressed */
+}
+
+
+/* Main Content Area (to prevent content from being hidden by fixed nav) */
+.main-content {
+    margin-top: 100px; /* Adjust this value based on your nav's height */
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Example styling for the animated box and toggle text from earlier if you use them */
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: dodgerblue;
+    margin: 20px auto; /* Center the box */
     cursor: pointer;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+    border-radius: 10px;
+}
+
+.box.clicked {
+    transform: scale(1.2) rotate(45deg);
+    background-color: orange;
+}
+
+/* For fading text */
+#toggleTextButton {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+#toggleTextButton:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+.visible {
+    opacity: 1;
+    max-height: 100px; /* Adjust based on content height */
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+/* --- Page Transition Related CSS (if you decide to implement this later) --- */
+.page-container {
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    font-size: 0.9em;
-    font-weight: bold;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #e0e0e0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    box-sizing: border-box;
+    position: absolute; /* Allows for overlap during transition */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Below nav */
 }
 
-.hot-buttons button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+.page-container.enter {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.hot-buttons button .button-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    margin-bottom: 5px;
+.page-container.enter-active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.comms-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.page-container.exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-container.exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.transition-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 30px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.transition-link:hover {
+    background-color: #0056b3;
 }

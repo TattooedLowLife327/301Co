@@ -1,0 +1,100 @@
+/* themes/color.css */
+
+/* Define variables for the "Color" theme */
+:root {
+    /* Base Colors */
+    --primary-bg-color: #FFFFFF; /* Main app background, header, content boxes */
+    --secondary-bg-color: #E0E0E0; /* Nav bar background */
+    --tertiary-bg-color: #F8F8F8; /* Calendar background */
+    --primary-text-color: #000000;
+    --secondary-text-color: #333333; /* For quote */
+    --tertiary-text-color: #555555; /* For calendar text */
+
+    /* Border/Shadow Colors */
+    --border-color-light: #CCCCCC;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+
+    /* Nav Specifics */
+    --nav-inactive-bg: #CCCCCC;
+    --nav-active-bg: #000080; /* Dark navy blue */
+    --nav-active-text: #FFFFFF; /* Active tab text */
+    --nav-inactive-hover-bg: #C0C0C0;
+}
+
+/* Apply these variables to elements */
+body {
+    background: var(--primary-bg-color);
+    color: var(--primary-text-color);
+}
+
+header {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+/* --- Dropdown Menu Theming --- */
+#settings-dropdown-container {
+    background-color: var(--primary-bg-color);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.dropdown-panel .dropdown-option {
+    color: var(--primary-text-color);
+}
+
+.dropdown-panel .dropdown-option:hover {
+    background-color: var(--secondary-bg-color);
+}
+
+.dropdown-panel label {
+    color: var(--secondary-text-color);
+}
+
+.dropdown-panel select {
+    border: 1px solid var(--border-color-light);
+    background-color: var(--tertiary-bg-color);
+    color: var(--primary-text-color);
+}
+
+
+nav {
+    background: var(--secondary-bg-color);
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+nav button {
+    background: var(--nav-inactive-bg);
+    color: var(--primary-text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border-radius: 8px; /* Optional: rounds the corners */
+    margin: 5px; /* Adds some spacing between tabs */
+}
+
+nav button.active {
+    background: var(--nav-active-bg);
+    color: var(--nav-active-text);
+    box-shadow: inset 0 2px 5px var(--shadow-strong);
+}
+
+nav button:hover:not(.active) {
+    background: var(--nav-inactive-hover-bg);
+}
+
+.content {
+    background: var(--primary-bg-color);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+#quote {
+    color: var(--secondary-text-color);
+}
+
+#calendar {
+    background: var(--tertiary-bg-color);
+    box-shadow: 0 2px 6px var(--shadow-light);
+    color: var(--tertiary-text-color);
+}

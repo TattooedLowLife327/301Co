@@ -7,55 +7,65 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="themes/color.css" id="theme-stylesheet">
     <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
 </head>
 <body>
     <header>
         <div class="header-left" id="messages">
-            <img src="assets/icons/color/message.png" alt="Messages" class="header-icon">
+            <img src="assets/icons/color/message.svg" alt="Messages" class="header-icon">
         </div>
         <div class="header-center">
             <img src="assets/largelogo.png" alt="301Co Logo" class="header-logo">
         </div>
         <div class="header-right">
             <button id="settings-button" class="header-icon-button">
-                <img src="assets/icons/color/cogwheel.png" alt="Settings" class="header-icon">
+                <img src="assets/icons/color/cogwheel.svg" alt="Settings" class="header-icon">
             </button>
+
+            <div id="settings-dropdown-container" class="dropdown-menu hidden">
+                <div id="general-settings-panel" class="dropdown-panel">
+                    <a href="#" class="dropdown-option" id="themes-option">Themes</a>
+                    <a href="#" class="dropdown-option" id="away-message-option">Away Message</a>
+                    <a href="#" class="dropdown-option" id="mute-notifications-option">Mute Notifications</a>
+                    </div>
+
+                <div id="theme-selector-panel" class="dropdown-panel hidden">
+                    <a href="#" class="dropdown-option" id="back-to-settings">Back to Settings</a>
+                    <label for="theme-selector">Select Theme:</label>
+                    <select id="theme-selector">
+                        <option value="color">Color Theme</option>
+                        <option value="dark">Dark Theme (Coming Soon)</option>
+                        </select>
+                </div>
+            </div>
         </div>
     </header>
     <nav>
         <button data-page="home" class="active">
-            <img src="assets/icons/color/dashboard.png" alt="Dashboard" class="nav-icon">
+            <img src="assets/icons/color/dashboard.svg" alt="Dashboard" class="nav-icon">
         </button>
         <button data-page="clients">
-             <img src="assets/icons/color/active_client.png" alt="Active Clients" class="nav-icon">
+             <img src="assets/icons/color/active_client.svg" alt="Active Clients" class="nav-icon">
         </button>
         <button data-page="forms">
-            <img src="assets/icons/color/blank_forms.png" alt="Blank Forms" class="nav-icon">
+            <img src="assets/icons/color/blank_forms.svg" alt="Blank Forms" class="nav-icon">
         </button>
         <button data-page="insurance">
-            <img src="assets/icons/color/forms_docs.png" alt="Forms & Docs" class="nav-icon">
+            <img src="assets/icons/color/forms_docs.svg" alt="Forms & Docs" class="nav-icon">
         </button>
         <button data-page="tools">
-            <img src="assets/icons/color/toolbag.png" alt="Tool Bag" class="nav-icon">
+            <img src="assets/icons/color/toolbag.svg" alt="Tool Bag" class="nav-icon">
         </button>
         <button data-page="comms">
-           <img src="assets/icons/color/gmail.png" alt="Phone/Email" class="nav-icon">
+           <img src="assets/icons/color/gmail.svg" alt="Phone/Email" class="nav-icon">
         </button>
     </nav>
     <main>
         <section id="home" class="page active">
             <div id="quote">"Stay positive!"</div>
             <div id="calendar">Weekly calendar goes here.</div>
-            <div class="hot-buttons">
-                <button id="scanner">
-                    <img src="assets/icons/color/scanner.png" alt="Open Scanner" class="button-icon">
-                </button>
-                <button id="new-client">
-                    <img src="assets/icons/color/create_new.png" alt="Create Client File" class="button-icon">
-                </button>
-            </div>
         </section>
         <section id="clients" class="page">
             <h2>Active Client Files</h2>
@@ -78,6 +88,14 @@
            <div class="content">Communication shortcuts placeholder.</div>
         </section>
     </main>
+
+    <div id="scanner-float" class="floating-icon">
+        <img src="assets/icons/color/scanner.svg" alt="Open Scanner" class="float-icon-img">
+    </div>
+    <div id="new-client-float" class="floating-icon">
+        <img src="assets/icons/color/create_new.svg" alt="Create Client File" class="float-icon-img">
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
