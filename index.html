@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Font Awesome Free icons licensed under CC BY 4.0 and SIL OFL 1.1 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>301Co App Prototype</title>
+    <title>301 Contacting,  LLC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="themes/color.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="themes/color.css">
 </head>
 <body>
     <header>
-        <div class="header-left" id="messages">💬</div>
-        <div class="header-center">Logo</div>
+        <div class="header-left" id="messages">
+            <img src="assets/icons/color/message.png" alt="Messages" class="header-icon">
+        </div>
+        <div class="header-center">
+            <img src="assets/largelogo.png" alt="301Co Logo" class="header-logo">
+        </div>
         <div class="header-right">
-            <select id="settings">
-                <option value="">Settings</option>
-                <option value="away">Away Message</option>
-                <option value="theme">Theme</option>
-                <option value="notifications">Notifications</option>
-            </select>
+            <button id="settings-button" class="header-icon-button">
+                <img src="assets/icons/color/cogwheel.png" alt="Settings" class="header-icon">
+            </button>
+
+            <div id="settings-dropdown-container" class="dropdown-menu hidden">
+                <div id="general-settings-panel" class="dropdown-panel">
+                    <a href="#" class="dropdown-option" id="themes-option">Themes</a>
+                    <a href="#" class="dropdown-option" id="away-message-option">Away Message</a>
+                    <a href="#" class="dropdown-option" id="mute-notifications-option">Mute Notifications</a>
+                    </div>
+
+                <div id="theme-selector-panel" class="dropdown-panel hidden">
+                    <a href="#" class="dropdown-option" id="back-to-settings">Back to Settings</a>
+                    <label for="theme-selector">Select Theme:</label>
+                    <select id="theme-selector">
+                        <option value="color">Color Theme</option>
+                        <option value="dark">Dark Theme (Coming Soon)</option>
+                        </select>
+                </div>
+            </div>
         </div>
     </header>
     <nav>
-        <button data-page="home" class="active">Home</button>
-        <button data-page="clients">Active Clients</button>
-        <button data-page="forms">Blank Forms</button>
-        <button data-page="insurance">Insurance & Docs</button>
-        <button data-page="tools">Tool Bag</button>
-        <button data-page="comms">Phone/Email</button>
+        <button data-page="home" class="active">
+            <img src="assets/icons/color/dashboard.png" alt="Dashboard" class="nav-icon">
+        </button>
+        <button data-page="clients">
+             <img src="assets/icons/color/active_client.png" alt="Active Clients" class="nav-icon">
+        </button>
+        <button data-page="forms">
+            <img src="assets/icons/color/forms_docs.png" alt="Blank Forms" class="nav-icon">
+        </button>
+        <button data-page="insurance">
+            <img src="assets/icons/color/forms_docs.png" alt="Forms & Docs" class="nav-icon">
+        </button>
+        <button data-page="tools">
+            <img src="assets/icons/color/toolbag.png" alt="Tool Bag" class="nav-icon">
+        </button>
+        <button data-page="comms">
+           <img src="assets/icons/color/gmail.png" alt="Phone/Email" class="nav-icon">
+        </button>
     </nav>
     <main>
         <section id="home" class="page active">
             <div id="quote">"Stay positive!"</div>
             <div id="calendar">Weekly calendar goes here.</div>
-            <div class="hot-buttons">
-                <button id="scanner"><i class="fa fa-camera"></i> <span class="label">Open Scanner</span></button>
-                <button id="new-client"><i class="fa fa-file"></i> <span class="label">Create Client File</span></button>
-            </div>
         </section>
         <section id="clients" class="page">
             <h2>Active Client Files</h2>
@@ -58,10 +84,18 @@
             <div class="content">Widgets go here.</div>
         </section>
         <section id="comms" class="page">
-            <h2>Phone & Email</h2>
-            <div class="content">Communication shortcuts placeholder.</div>
+           <h2>Phone & Email</h2>
+           <div class="content">Communication shortcuts placeholder.</div>
         </section>
     </main>
+
+    <div id="scanner-float" class="floating-icon">
+        <img src="assets/icons/color/scanner.svg" alt="Open Scanner" class="float-icon-img">
+    </div>
+    <div id="new-client-float" class="floating-icon">
+        <img src="assets/icons/color/create_new.svg" alt="Create Client File" class="float-icon-img">
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
