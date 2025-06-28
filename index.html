@@ -1,101 +1,267 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>301 Contracting,  LLC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="themes/color.css" id="theme-stylesheet">
-    <link rel="stylesheet" href="themes/color.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>301 Contracting, LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="themes/color.css" id="theme-stylesheet" />
+  <link rel="stylesheet" href="tool-widgets.css" />  <style>
+    /* Calculator styles */
+    .widget-box.calculator-widget {
+      padding: 20px;
+      background: #000000;
+      font-size: 16px;
+      color: #FFFFFF;
+      max-width: 320px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .calculator-widget h3 {
+      color: #FFFFFF;
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1b263b;
+      text-align: center;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+    .calculator-widget .calc-display {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2em;
+      font-weight: bold;
+      color: #FFFFFF;
+      line-height: 1.5em;
+      height: 1.5em;
+      text-align: right;
+      overflow: hidden;
+      background-color: #1b263b;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    .calculator-widget .calc-display.error { color: red; }
+    .calculator-widget .calc-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .calculator-widget button {
+      border: 1px solid #1b263b;
+      background: #1b263b;
+      color: #FFFFFF;
+      cursor: pointer;
+      font: inherit;
+      font-size: 1.2em;
+      width: 100%;
+      height: 2.5em;
+      border-radius: 4px;
+    }
+    .calculator-widget button:hover { background: #415a77; border-color: #778da9; }
+    .calculator-widget button:active { transform: scale(0.95); }
+    .calculator-widget button.ops { background-color: #415a77; }
+    .calculator-widget button.equals { background-color: #778da9; }
+    .calculator-widget.broken { animation: broken 1s forwards; }
+    @keyframes broken {
+      0%   { transform: translate(0,0) rotate(0deg); }
+      25%  { transform: translate(5px,5px) rotate(5deg); }
+      50%  { transform: translate(-5px,-5px) rotate(-5deg); }
+      75%  { transform: translate(5px,-5px) rotate(5deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
+    }
+  </style></head>
 <body>
-    <header>
-        <div class="header-left" id="messages">
-            <img src="assets/icons/color/message.png" alt="Messages" class="header-icon">
-        </div>
-        <div class="header-center">
-            <img src="assets/largelogo.png" alt="301Co Logo" class="header-logo">
-        </div>
-        <div class="header-right">
-            <button id="settings-button" class="header-icon-button">
-                <img src="assets/icons/color/cogwheel.png" alt="Settings" class="header-icon">
-            </button>
-
-            <div id="settings-dropdown-container" class="dropdown-menu hidden">
-                <div id="general-settings-panel" class="dropdown-panel">
-                    <a href="#" class="dropdown-option" id="themes-option">Themes</a>
-                    <a href="#" class="dropdown-option" id="away-message-option">Away Message</a>
-                    <a href="#" class="dropdown-option" id="mute-notifications-option">Mute Notifications</a>
-                    </div>
-
-                <div id="theme-selector-panel" class="dropdown-panel hidden">
-                    <a href="#" class="dropdown-option" id="back-to-settings">Back to Settings</a>
-                    <label for="theme-selector">Select Theme:</label>
-                    <select id="theme-selector">
-                        <option value="color">Color Theme</option>
-                        <option value="dark">Dark Theme</option>
-                        </select>
-                </div>
-            </div>
-        </div>
-    </header>
-    <nav>
-        <button data-page="home" class="active">
-            <img src="assets/icons/color/dashboard.png" alt="Dashboard" class="nav-icon">
-        </button>
-        <button data-page="clients">
-             <img src="assets/icons/color/active_client.png" alt="Active Clients" class="nav-icon">
-        </button>
-        <button data-page="forms">
-            <img src="assets/icons/color/forms_docs.png" alt="Blank Forms" class="nav-icon">
-        </button>
-        <button data-page="insurance">
-            <img src="assets/icons/color/forms_docs.png" alt="Forms & Docs" class="nav-icon">
-        </button>
-        <button data-page="tools">
-            <img src="assets/icons/color/toolbag.png" alt="Tool Bag" class="nav-icon">
-        </button>
-        <button data-page="comms">
-           <img src="assets/icons/color/gmail.png" alt="Phone/Email" class="nav-icon">
-        </button>
-    </nav>
-    <main>
-        <section id="home" class="page active">
-            <div id="quote">"Stay positive!"</div>
-            <div id="calendar">Weekly calendar goes here.</div>
-        </section>
-        <section id="clients" class="page">
-            <h2>Active Client Files</h2>
-            <div class="content">Client list placeholder.</div>
-        </section>
-        <section id="forms" class="page">
-            <h2>Blank Forms</h2>
-            <div class="content">Form index placeholder.</div>
-        </section>
-        <section id="insurance" class="page">
-            <h2>Insurance & Documentation</h2>
-            <div class="content">Insurance documents placeholder.</div>
-        </section>
-        <section id="tools" class="page">
-            <h2>Tool Bag</h2>
-            <div class="content">Widgets go here.</div>
-        </section>
-        <section id="comms" class="page">
-           <h2>Phone & Email</h2>
-           <div class="content">Communication shortcuts placeholder.</div>
-        </section>
-    </main>
-
-    <div id="scanner-float" class="floating-icon">
-        <img src="assets/icons/color/scanner.svg" alt="Open Scanner" class="float-icon-img">
+  <header>
+    <div class="header-left" id="messages">
+      <img src="assets/icons/color/message.png" alt="Messages" class="header-icon" />
     </div>
-    <div id="new-client-float" class="floating-icon">
-        <img src="assets/icons/color/create_new.svg" alt="Create Client File" class="float-icon-img">
+    <div class="header-center">
+      <img src="assets/largelogo.png" alt="301Co Logo" class="header-logo" />
     </div>
+    <div class="header-right">
+      <button id="settings-button" class="header-icon-button">
+        <img src="assets/icons/color/cogwheel.png" alt="Settings" class="header-icon" />
+      </button>
+      <div id="settings-dropdown-container" class="dropdown-menu hidden">
+        <div id="general-settings-panel" class="dropdown-panel">
+          <a href="#" class="dropdown-option" id="themes-option">Themes</a>
+          <a href="#" class="dropdown-option" id="away-message-option">Away Message</a>
+          <a href="#" class="dropdown-option" id="mute-notifications-option">Mute Notifications</a>
+        </div>
+        <div id="theme-selector-panel" class="dropdown-panel hidden">
+          <a href="#" class="dropdown-option" id="back-to-settings">Back to Settings</a>
+          <label for="theme-selector">Select Theme:</label>
+          <select id="theme-selector">
+            <option value="color">Color Theme</option>
+            <option value="dark">Dark Theme</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>  <nav>
+    <button data-page="home" class="active"><img src="assets/icons/color/dashboard.png" alt="Dashboard" class="nav-icon" /></button>
+    <button data-page="clients"><img src="assets/icons/color/active_client.png" alt="Active Clients" class="nav-icon" /></button>
+    <button data-page="forms"><img src="assets/icons/color/blank_forms.png" alt="Blank Forms" class="nav-icon" /></button>
+    <button data-page="insurance"><img src="assets/icons/color/forms_docs.png" alt="Forms & Docs" class="nav-icon" /></button>
+    <button data-page="tools"><img src="assets/icons/color/toolbag.png" alt="Tool Bag" class="nav-icon" /></button>
+    <button data-page="comms"><img src="assets/icons/color/gmail.png" alt="Phone/Email" class="nav-icon" /></button>
+  </nav>  <main>
+    <section id="home" class="page active">
+      <div id="quote">"Stay positive!"</div>
+      <div id="calendar">Weekly calendar goes here.</div>
+    </section>
+    <section id="clients" class="page">
+      <h2>Active Client Files</h2>
+      <div class="content">Client list placeholder.</div>
+    </section>
+    <section id="forms" class="page">
+      <h2>Blank Forms</h2>
+      <div class="content">Form index placeholder.</div>
+    </section>
+    <section id="insurance" class="page">
+      <h2>Insurance & Documentation</h2>
+      <div class="content">Insurance documents placeholder.</div>
+    </section>
+    <section id="tools" class="page">
+      <h2>Tool Bag</h2>
+      <div class="content">
+        <!-- Measurement Converter -->
+        <div class="widget-box">
+          <h3>Measurement Converter</h3>
+          <input type="number" id="inputValue" placeholder="Enter value" />
+          <select id="fromUnit">
+            <option value="in">Inches</option>
+            <option value="ft">Feet</option>
+            <option value="cm">Centimeters</option>
+            <option value="m">Meters</option>
+          </select>
+          <select id="toUnit">
+            <option value="in">Inches</option>
+            <option value="ft">Feet</option>
+            <option value="cm">Centimeters</option>
+            <option value="m">Meters</option>
+          </select>
+          <div class="result" id="result">Converted value will appear here</div>
+        </div>
+        <!-- Calculator -->
+        <div id="calculator-container" class="widget-box calculator-widget">
+          <h3>Calculator</h3>
+          <div id="viewer" class="calc-display">0</div>
+          <div class="calc-buttons">
+            <button id="clear" class="clear">C</button>
+            <button data-ops="/" class="ops">÷</button>
+            <button data-ops="*" class="ops">×</button>
+            <button data-ops="backspace" class="ops">⌫</button>
+            <button class="num" data-num="7">7</button>
+            <button class="num" data-num="8">8</button>
+            <button class="num" data-num="9">9</button>
+            <button data-ops="-" class="ops">−</button>
+            <button class="num" data-num="4">4</button>
+            <button class="num" data-num="5">5</button>
+            <button class="num" data-num="6">6</button>
+            <button data-ops="+" class="ops">+</button>
+            <button class="num" data-num="1">1</button>
+            <button class="num" data-num="2">2</button>
+            <button class="num" data-num="3">3</button>
+            <button id="equals" class="equals">=</button>
+            <button class="num" data-num="0" style="grid-column: span 2;">0</button>
+            <button class="num" data-num=".">.</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>  <div id="scanner-float" class="floating-icon">
+    <img src="assets/icons/color/scanner.png" alt="Open Scanner" class="float-icon-img" />
+  </div>
+  <div id="new-client-float" class="floating-icon">
+    <img src="assets/icons/color/create_new.png"  alt="Create Client File" class="float-icon-img" />
+  </div>  <!-- External app logic -->  <script src="main.js"></script>  <!-- Calculator & Converter -->  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Calculator logic
+      const viewer = document.getElementById('viewer');
+      const equals = document.getElementById('equals');
+      const nums = document.querySelectorAll('.num');
+      const ops = document.querySelectorAll('.ops');
+      const clearBtn = document.getElementById('clear');
+      const calcContainer = document.getElementById('calculator-container');
+      let theNum = '';
+      let oldNum = '';
+      let resultNum = '';
+      let operator = null;
 
-    <script src="main.js"></script>
-</body>
+      const setNum = () => {
+        if (resultNum) { theNum = event.target.getAttribute('data-num'); resultNum = ''; }
+        else if (theNum.length < 12) { theNum += event.target.getAttribute('data-num'); }
+        viewer.textContent = theNum || '0';
+        viewer.classList.remove('error');
+      };
+
+      const moveNum = () => {
+        const op = event.target.getAttribute('data-ops');
+        if (op === 'backspace') { theNum = theNum.slice(0, -1); viewer.textContent = theNum || '0'; return; }
+        if (oldNum && theNum) displayNum();
+        oldNum = theNum || oldNum; theNum = ''; operator = op;
+      };
+
+      const displayNum = () => {
+        const n1 = parseFloat(oldNum);
+        const n2 = parseFloat(theNum);
+        if (isNaN(n1) || isNaN(n2)) return;
+        switch (operator) {
+          case '+': resultNum = n1 + n2; break;
+          case '-': resultNum = n1 - n2; break;
+          case '*': resultNum = n1 * n2; break;
+          case '/':
+            if (n2 === 0) {
+              viewer.textContent = 'Error';
+              viewer.classList.add('error');
+              calcContainer.classList.add('broken');
+              setTimeout(() => calcContainer.classList.remove('broken'), 1000);
+              theNum = oldNum = resultNum = '';
+              return;
+            }
+            resultNum = n1 / n2;
+            break;
+        }
+        if (resultNum.toString().length > 10) resultNum = parseFloat(resultNum.toPrecision(9));
+        theNum = resultNum.toString();
+        viewer.textContent = theNum;
+        oldNum = '';
+      };
+
+      const clearAll = () => {
+        theNum = oldNum = resultNum = ''; operator = null;
+        viewer.textContent = '0';
+        viewer.classList.remove('error');
+        calcContainer.classList.remove('broken');
+      };
+
+      nums.forEach(btn => btn.addEventListener('click', setNum));
+      ops.forEach(btn => btn.addEventListener('click', moveNum));
+      equals.addEventListener('click', displayNum);
+      clearBtn.addEventListener('click', clearAll);
+
+      // Measurement converter
+      const inputValue = document.getElementById('inputValue');
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+      const resultEl = document.getElementById('result');
+      const convert = () => {
+        const rates = { in: 1, ft: 12, cm: 0.393701, m: 39.3701 };
+        const val = parseFloat(inputValue.value);
+        if (isNaN(val)) {
+          resultEl.textContent = 'Converted value will appear here';
+          return;
+        }
+        const inches = val * rates[fromUnit.value];
+        const out = inches / rates[toUnit.value];
+        resultEl.textContent = `${out.toFixed(4)} ${toUnit.options[toUnit.selectedIndex].text}`;
+      };
+      inputValue.addEventListener('input', convert);
+      fromUnit.addEventListener('change', convert);
+      toUnit.addEventListener('change', convert);
+    });
+  </script></body>
 </html>

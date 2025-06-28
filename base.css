@@ -1,223 +1,218 @@
-/* base.css */
+/* base.css - Corrected and Merged */
+
+/* --- Core App & Theme Styles --- */
+/* These variables are used for the main app layout and theming */
+:root {
+    --header-bg: #FFFFFF;
+    --nav-bg: #FFFFFF;
+    --page-bg: #F0F2F5; /* A light grey for the main background */
+    --widget-bg: #FFFFFF; /* Background for cards, widgets, etc. */
+    --text-primary: #1C1E21;
+    --text-secondary: #606770;
+    --border-color: #CED0D4;
+    --nav-active-bg: #E7F3FF;
+    --nav-active-text: #0866FF;
+    --accent-color: #0866FF;
+}
+
+body.dark {
+    --header-bg: #242526;
+    --nav-bg: #242526;
+    --page-bg: #18191A;
+    --widget-bg: #3A3B3C;
+    --text-primary: #E4E6EB;
+    --text-secondary: #B0B3B8;
+    --border-color: #3E4042;
+    --nav-active-bg: #263951;
+    --nav-active-text: #2E89FF;
+    --accent-color: #2E89FF;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding-bottom: 70px;
+    padding-bottom: 70px; /* Space for nav bar if it were at the bottom */
+    background-color: var(--page-bg);
+    color: var(--text-primary);
 }
 
+
+/* --- Header --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .header-left, .header-center, .header-right {
-    flex-grow: 1;
-    text-align: center;
+    flex: 1;
     display: flex;
     align-items: center;
 }
-
-.header-left {
-    justify-content: flex-start;
-}
-
-.header-center {
-    justify-content: center;
-}
-
-.header-right {
-    justify-content: flex-end;
-    position: relative;
-}
+.header-left { justify-content: flex-start; }
+.header-center { justify-content: center; }
+.header-right { justify-content: flex-end; position: relative; }
 
 .header-icon {
     width: 28px;
     height: 28px;
-    object-fit: contain;
     cursor: pointer;
-    image-rendering: optimizeQuality; /* Helps with quality of scaled images */
 }
+.header-icon-button { background: none; border: none; padding: 0; cursor: pointer; }
+.header-logo { max-height: 50px; width: auto; object-fit: contain; }
 
-.header-icon-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-logo {
-    max-height: 100px;
-    width: auto;
-    object-fit: contain;
-}
-
-/* --- Dropdown Menu Styling (Parent Container) --- */
+/* --- Settings Dropdown --- */
 #settings-dropdown-container {
     position: absolute;
     top: 100%;
     right: 0;
-    min-width: 180px;
-    border-radius: 4px;
-    padding: 0; /* Panels handle padding */
+    min-width: 200px;
+    border-radius: 8px;
     z-index: 1001;
-    overflow: hidden; /* Hide content when panels switch */
-    display: flex; /* Ensures inner panels behave correctly */
-    flex-direction: column;
+    background-color: var(--widget-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+#settings-dropdown-container.hidden { display: none; }
 
-#settings-dropdown-container.hidden {
-    display: none;
-}
-
-/* --- Dropdown Panels (General Settings & Theme Selector) --- */
-.dropdown-panel {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px 0; /* Vertical padding for panel content */
-}
-
-.dropdown-panel.hidden {
-    display: none;
-}
+.dropdown-panel { padding: 8px; }
+.dropdown-panel.hidden { display: none; }
 
 .dropdown-panel .dropdown-option {
-    padding: 8px 15px;
+    padding: 10px 12px;
     text-decoration: none;
+    color: var(--text-primary);
     display: block;
     cursor: pointer;
-    white-space: nowrap;
+    border-radius: 6px;
 }
+.dropdown-panel .dropdown-option:hover { background-color: var(--page-bg); }
 
-.dropdown-panel label {
-    padding: 8px 15px;
-    display: block;
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
+.dropdown-panel label { padding: 8px 12px; font-size: 0.9em; color: var(--text-secondary); }
 .dropdown-panel select {
-    width: calc(100% - 30px);
-    margin: 0 15px 10px 15px;
+    width: calc(100% - 24px);
+    margin: 0 12px 10px;
     padding: 8px;
     border-radius: 4px;
-    font-size: 0.9em;
-    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background-color: var(--page-bg);
+    color: var(--text-primary);
 }
 
-
-/* Navigation Tabs */
+/* --- Main Navigation Tabs --- */
 nav {
     display: flex;
     justify-content: space-around;
     padding: 5px 0;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav button {
+    background-color: transparent;
+    color: var(--text-secondary);
     flex-grow: 1;
-    margin: 0 2px;
     padding: 8px 0;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.95em;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+}
+.nav-icon { width: 24px; height: 24px; }
+nav button.active {
+    background-color: var(--nav-active-bg);
+    color: var(--nav-active-text);
 }
 
-.nav-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    image-rendering: optimizeQuality; /* Helps with quality of scaled images */
-}
 
+/* --- Main Content & Pages --- */
 main {
     padding: 20px;
-    padding-bottom: 70px;
 }
+.page { display: none; }
+.page.active { display: block; }
 
-.page {
-    margin-bottom: 20px;
-    display: none;
-}
-
-.page.active {
-    display: block;
-}
-
-.content {
+.widget-box {
     padding: 16px;
     margin-bottom: 20px;
     border-radius: 8px;
+    background-color: var(--widget-bg);
+    border: 1px solid var(--border-color);
 }
 
 #quote {
     font-style: italic;
     text-align: center;
     margin-bottom: 15px;
+    color: var(--text-secondary);
     font-size: 1.1em;
 }
 
 #calendar {
-    padding: 20px;
-    border-radius: 8px;
     text-align: center;
     min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
 }
 
+/* --- General Input/Button/Result Styles --- */
+/* These apply to widgets like the measurement converter */
+.widget-box input, .widget-box select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box; /* Important for consistent sizing */
+  padding: 10px;
+  margin: 10px 0;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 16px;
+}
+.widget-box .result {
+  padding: 10px;
+  background: var(--page-bg);
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+}
+/* General button style inside a widget */
+.widget-box > button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+
+/* --- Floating Action Buttons --- */
 .floating-icon {
     position: fixed;
     bottom: 20px;
     width: 50px;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+    border-radius: 25px;
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     cursor: pointer;
-}
-
-#scanner-float {
-    left: 20px;
-}
-
-#new-client-float {
-    right: 20px;
-}
-
-.float-icon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    image-rendering: optimizeQuality; /* Helps with quality of scaled images */
-}
-
-.floating-icon:hover {
-    transform: scale(1.1);
+    z-index: 999;
     transition: transform 0.2s ease-in-out;
 }
-
-.comms-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.floating-icon:hover { transform: scale(1.1); }
+#scanner-float { left: 20px; }
+#new-client-float { right: 20px; }
+.float-icon-img { width: 28px; height: 28px; margin: 11px; }

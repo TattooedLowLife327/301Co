@@ -10,16 +10,15 @@
     --tertiary-text-color: #AAAAAA; /* For calendar text */
 
     --border-color-light: #333333; /* Darker border for dark theme */
-    /* Adjusted shadow values for a cleaner, sharper lift on dark background */
     --shadow-light: rgba(255, 255, 255, 0.1);   /* Very subtle, for smaller lifts */
     --shadow-medium: rgba(255, 255, 255, 0.15); /* More noticeable, but still clean */
     --shadow-strong: rgba(255, 255, 255, 0.25); /* For more pronounced lifts */
 
     /* Nav Specifics */
-    --nav-inactive-bg: #000000; /* Black for inactive tabs */
-    --nav-active-bg: #2A386D; /* Navy blue from logo for active tab */
-    --nav-active-text: #FFFFFF; /* White text for active tab */
-    --nav-inactive-hover-bg: #1a1a1a; /* Slightly darker black on hover for inactive tabs */
+    --nav-inactive-bg: #000000;
+    --nav-active-bg: #2A386D;
+    --nav-active-text: #FFFFFF;
+    --nav-inactive-hover-bg: #1a1a1a;
 }
 
 /* Apply these variables to elements */
@@ -59,7 +58,6 @@ header {
     color: var(--primary-text-color);
 }
 
-
 nav {
     background: var(--secondary-bg-color);
     box-shadow: 0 2px 4px var(--shadow-light);
@@ -67,9 +65,8 @@ nav {
 
 nav button {
     background: var(--nav-inactive-bg);
-    color: var(--primary-text-color); /* This applies if text is present, otherwise no effect */
-    /* Clean, subtle box-shadow for dimensional lift without glow */
-    box-shadow: 0 2px 5px var(--shadow-medium); /* Offset-Y, Blur, Spread, Color */
+    color: var(--primary-text-color);
+    box-shadow: 0 2px 5px var(--shadow-medium);
     border-radius: 8px;
     margin: 5px;
 }
@@ -77,7 +74,6 @@ nav button {
 nav button.active {
     background: var(--nav-active-bg);
     color: var(--nav-active-text);
-    /* Inset shadow for active state, combined with a subtle outer shadow */
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(255, 255, 255, 0.1);
 }
 
@@ -87,7 +83,7 @@ nav button:hover:not(.active) {
 
 .content {
     background: var(--tertiary-bg-color);
-    box-shadow: 0 5px 12px var(--shadow-strong); /* Stronger, cleaner shadow for content boxes */
+    box-shadow: 0 5px 12px var(--shadow-strong);
 }
 
 #quote {
@@ -96,18 +92,9 @@ nav button:hover:not(.active) {
 
 #calendar {
     background: var(--tertiary-bg-color);
-    box-shadow: 0 4px 10px var(--shadow-medium); /* Stronger, cleaner shadow for calendar */
+    box-shadow: 0 4px 10px var(--shadow-medium);
     color: var(--tertiary-text-color);
 }
 
 /* --- Icon Filtering for Dark Theme --- */
-/* REMOVED FILTERS: Icons are expected to be white SVGs directly now. */
-/* If they still appear distorted, the SVG files themselves need inspection/correction. */
-/* .header-icon,
-.nav-icon,
-.float-icon-img {
-    filter: none;
-}
-nav button.active .nav-icon {
-    filter: none;
-} */
+/* Icons must be white SVGs in assets/icons/dark/ folder */
