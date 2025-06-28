@@ -55,7 +55,7 @@ header {
 }
 
 .header-logo {
-    max-height: 40px;
+    max-height: 100px;
     width: auto;
     object-fit: contain;
 }

@@ -38,11 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
         themeStylesheet.href = `themes/${themeName}.css`;
         localStorage.setItem('selectedTheme', themeName); // Save preference
 
-        // Determine the base path for icons
-        const iconBasePath = `assets/icons/`;
-        const iconSubFolder = themeName === 'dark' ? 'dark/' : 'color/';
-        // Corrected: Uses .svg for both themes, relies on content of 'dark' folder being white SVGs
-        const iconExtension = '.svg';
+// Determine the base path for icons
+const iconBasePath = `assets/icons/`;
+
+// Choose subfolder and extension based on theme
+let iconSubFolder, iconExtension;
+
+if (themeName === 'dark') {
+  iconSubFolder = 'dark/';
+  iconExtension = '.svg'; // white SVGs for dark theme
+} else {
+  iconSubFolder = 'color/';
+  iconExtension = '.png'; // color PNGs for color theme
+}
+
+// Example of full icon path
+const iconFileName = 'settings'; // just an example
+const iconPath = `${iconBasePath}${iconSubFolder}${iconFileName}${iconExtension}`;
 
         // Map of icon elements to their base filenames (e.g., 'message', 'cogwheel')
         const iconElements = [
