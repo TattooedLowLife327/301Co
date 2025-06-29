@@ -1,4 +1,4 @@
-# 301Co App
+# 310Co App
 
 This repository contains a minimal prototype web application based on the feature list provided.
 It is a static HTML/JavaScript demonstration that shows the overall layout of the app with
